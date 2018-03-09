@@ -1,4 +1,7 @@
 # x-hexo-app-express
+
+![Travis](https://api.travis-ci.org/smrsan76/x-hexo-app-express.svg?branch=master)
+
 It lets you use hexo app(s) as route(s) in your express/connect app
 
 [![NPM](https://nodei.co/npm/x-hexo-app-express.png)](https://nodei.co/npm/x-hexo-app-express/)
@@ -188,19 +191,10 @@ var hexoAppExpress = require("./relative/path/to/your/blog's/root/directory")(ap
 
 // some of your codes ...
 ```
-or you can use a shorter code (__**but not safer**__) like this:
-```javascript
-// some of your codes ...
-var hexoApp = require("./relative/path/to/your/blog\'s/root/directory").hexoApp;
-
-// e.g. 'app' is your (connect|express|...) application
-app.use("/hexo/blog/route", hexoApp);
-// some of your codes ...
-```
 
 1.9 - After all previous steps, it's time to run your main application which
 you added [x-hexo-app-express](https://npmjs.com/package/x-hexo-app-express) to one of it's routes.
-e.g. if hexo worked well, after running; it should log something like this in your app's terminal:
+e.g. after running, if hexo worked well; it should log something like this in your app's terminal:
 ```
 INFO  Start processing
 INFO  [x-hexo-app-express] is running on route /blog
@@ -212,6 +206,9 @@ succeed.
 
 
 ## 2. Configurations
+There are 2 ways for [x-hexo-app-express](https://npmjs.com/package/x-hexo-app-express) configuration.
+
+### 1. Config :: Using Hexo `_configs.yml` File
 There is a `_configs.yml` file inside of your blog's directory.
 Add these configuration lines to `_configs.yml` content:
 ```yaml
@@ -225,6 +222,21 @@ app:
 ```
 The configs above are default configs, too.
 
+### 2. Config :: Using The Third Argument
+__**(>= v2.0.5) Recommended**__: Simply enter an object to the third argument of this package's function:
+```javascript
+hexoApp(
+    yourApp,
+    hexo,
+    { // The Configs/Options
+        log: false,
+        compress: false,
+        header: true,
+        serveStatic: false,
+        route: "/"
+    });
+```
+
 ### Config Explanations
 `log` : logs some information about hexo state.
 
@@ -237,7 +249,9 @@ The configs above are default configs, too.
 `route` : determines that hexo runs on which route of your (connect|express|...) application.
 
 > Note: Determining the `route` in it's configs is __**SO IMPORTANT**__; because it can cause
- your app to not load pages correctly. so be careful about it.
+ your app to not load pages correctly. so be careful about it and I recommend you to use
+ [the second approach](#2-config--using-the-third-argument)
+ for configuration.
 
 > Note: Use the complete route string which [x-hexo-app-express](https://npmjs.com/package/x-hexo-app-express)
 connects to your (connect|express|...) app in it.
@@ -256,7 +270,7 @@ the helpers which use url_for, like:
 - [js()](https://hexo.io/docs/helpers.html#js)
 - [link_to()](https://hexo.io/docs/helpers.html#https://hexo.io/docs/helpers.html#link-to)
 
-to solve that.
+then add a slash '/' after the `archives page` url to solve that.
 
 #### Relative Packages
 * [x-hexo-app-connect](https://npmjs.com/package/x-hexo-app-connect)
