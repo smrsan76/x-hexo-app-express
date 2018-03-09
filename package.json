@@ -1,6 +1,6 @@
 {
   "name": "x-hexo-app-express",
-  "version": "2.0.4",
+  "version": "2.0.12",
   "description": "It lets you use hexo (express) as a route in your main express/connect app",
   "main": "index.js",
   "scripts": {
