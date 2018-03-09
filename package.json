@@ -1,6 +1,6 @@
 {
   "name": "x-hexo-app-express",
-  "version": "2.0.12",
+  "version": "2.0.14",
   "description": "It lets you use hexo (express) as a route in your main express/connect app",
   "main": "index.js",
   "scripts": {
@@ -34,7 +34,7 @@
   "author": "SMRSAN",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/smrsan76/hexo-app-express/issues"
+    "url": "https://github.com/smrsan76/x-hexo-app-express/issues"
   },
-  "homepage": "https://github.com/smrsan76/hexo-app-express#readme"
+  "homepage": "https://github.com/smrsan76/x-hexo-app-express#readme"
 }
